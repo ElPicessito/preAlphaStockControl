@@ -8,7 +8,8 @@
     mc:Ignorable="d"
     
     Title="PreAlphaStockControl"
-    SizeToContent="WidthAndHeight" 
+    Height="400"
+    Width="800"
     Icon="/StockControl_Icon.ico" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <!--BorderStyle-->
@@ -50,17 +51,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <StackPanel 
                 Grid.Row="0" 
                 Margin="12">
-                <TextBlock
-                    Margin="0,10,10,10"
-                    Text="StockControl"
-                    FontSize="20"
-                    FontWeight="Bold"
-                    />
-                <Border>
+                <Border
+                    Margin="12">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition 
@@ -70,14 +67,14 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock
-                            Margin="0,0,10,0"
+                            Margin="0,0,5,0"
                             FontFamily="Segoe Fluent Icons"
                             Text="&#xE721;"
                             FontSize="16" 
                             VerticalAlignment="Center"/>
 
                         <TextBox
-                            Width="150"
+                            Width="200"
                             Grid.Column="1"
                             BorderThickness="0"
                             HorizontalAlignment="Center" 
@@ -90,93 +87,47 @@
             <StackPanel 
                 Grid.Row="1"
                 Margin="12">
-                <Border    
-                    Style="{StaticResource NavigationItemBorderStyle}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        
-                        <TextBlock
-                            Style="{StaticResource NavigationIconStyle}"
-                            Text="&#xE80F;"/>
-                        
-                        <TextBlock
-                            Style="{StaticResource NavigationTextStyle}"
-                            Text="Dashboard"/>
-                    </Grid>
-                </Border>
-                <Border
-                    Style="{StaticResource NavigationItemBorderStyle}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                <ListView
+                    x:Name="NavigationList"
+                    Margin="10"
+                    BorderThickness="0"
+                    SelectionMode="Single"
+                    SelectedIndex="0">
 
-                        <TextBlock
-                            Style="{StaticResource NavigationIconStyle}"
-                            Text="&#xF133;"/>
+                    <ListViewItem Content="Dashboard"/>
+                    <ListViewItem Content="Products"/>
+                    <ListViewItem Content="Customers"/>
+                    <ListViewItem Content="Reports"/>
+                    <ListViewItem Content="Settings"/>
+                </ListView>
+                
 
-                        <TextBlock
-                            Style="{StaticResource NavigationTextStyle}"
-                            Text="Product"/>
-                    </Grid>
-                </Border>
-                <Border    
-                    Style="{StaticResource NavigationItemBorderStyle}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock
-                            Style="{StaticResource NavigationIconStyle}"
-                            Text="&#xE902;"/>
-
-                        <TextBlock
-                            Style="{StaticResource NavigationTextStyle}"
-                            Text="Customers"/>
-                    </Grid>
-                </Border>
-                <Border    
-                    Style="{StaticResource NavigationItemBorderStyle}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock
-                            Style="{StaticResource NavigationIconStyle}"
-                            Text="&#xEFFF;"/>
-
-                        <TextBlock
-                            Style="{StaticResource NavigationTextStyle}"
-                            Text="Reports"/>
-                    </Grid>
-                </Border>
-                <Border    
-                    Style="{StaticResource NavigationItemBorderStyle}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock
-                            Style="{StaticResource NavigationIconStyle}"
-                            Text="&#xE713;"/>
-
-                        <TextBlock
-                            Style="{StaticResource NavigationTextStyle}"
-                            Text="Settings"/>
-                    </Grid>
-                </Border>
             </StackPanel>
             <!--End of Navigation-->
+            <!-- Footer -->        
+            <StackPanel 
+                Grid.Row="2"
+                Margin="12">
+                <ComboBox 
+                    x:Name="Change_ThemeMode" 
+                    MinWidth="200" 
+                    HorizontalAlignment="Left" 
+                    SelectedIndex="2"
+                    AutomationProperties.Name="Change ThemeMode" 
+                    SelectionChanged="ThemeMode_SelectionChanged" 
+                    Margin="10">
+                    <ComboBoxItem Content="Light" />
+                    <ComboBoxItem Content="Dark" />
+                    <ComboBoxItem Content="Use system setting" />
+                </ComboBox>
+                
+                <TextBlock
+                    Text="© 2023 Picessito. All rights reserved."
+                    HorizontalAlignment="Left"
+                    FontSize="12"
+                    Foreground="Gray"
+                    Margin="12"/>
+            </StackPanel>
         </Grid>
         <!-- End of Sidebar -->
         
