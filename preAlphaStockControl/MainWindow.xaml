@@ -12,7 +12,7 @@
     Width="1200"
     Icon="/StockControl_Icon.ico" WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <!--BorderStyle-->
+
         <Style x:Key="NavigationItemBorderStyle" TargetType="Border">
             <Setter Property="Margin" Value="0,4"/>
             <Setter Property="Padding" Value="12"/>
@@ -22,6 +22,76 @@
                     <Setter Property="Background" Value="#11000000"/>
                 </Trigger>
             </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SearchBoxStyle" TargetType="TextBox">
+            <Setter Property="Tag" Value="Search..."/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Padding" Value="4,0,10,0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="{DynamicResource TextControlBackground}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource TextControlBorderBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextControlForeground}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border
+                            x:Name="Root"
+                            CornerRadius="6"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock
+                                    Grid.Column="0"
+                                    Margin="10,0,4,0"
+                                    FontFamily="Segoe Fluent Icons"
+                                    Text="&#xE721;"
+                                    FontSize="14"
+                                    Foreground="{DynamicResource TextControlPlaceholderForeground}"
+                                    VerticalAlignment="Center"/>
+
+                                <Grid Grid.Column="1">
+                                    <TextBlock
+                                        x:Name="Placeholder"
+                                        Text="{TemplateBinding Tag}"
+                                        Foreground="{DynamicResource TextControlPlaceholderForeground}"
+                                        VerticalAlignment="Center"
+                                        Margin="{TemplateBinding Padding}"
+                                        IsHitTestVisible="False"
+                                        Visibility="Collapsed"/>
+
+                                    <ScrollViewer
+                                        x:Name="PART_ContentHost"
+                                        VerticalAlignment="Center"
+                                        Margin="{TemplateBinding Padding}"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                    <Condition Property="IsFocused" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                            </MultiTrigger>
+
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="Root" Property="BorderBrush" Value="{DynamicResource SystemAccentColorBrush}"/>
+                                <Setter TargetName="Root" Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <!--IconStyle-->
         <Style x:Key="NavigationIconStyle" TargetType="TextBlock">
@@ -56,31 +126,10 @@
             <StackPanel 
                 Grid.Row="0" 
                 Margin="12">
-                <Border
-                    Margin="12">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition 
-                                Width="Auto"/>
-                            <ColumnDefinition 
-                                Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock
-                            Margin="0,0,5,0"
-                            FontFamily="Segoe Fluent Icons"
-                            Text="&#xE721;"
-                            FontSize="16" 
-                            VerticalAlignment="Center"/>
-
-                        <TextBox
-                            Width="200"
-                            Grid.Column="1"
-                            BorderThickness="0"
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Center"/>
-                    </Grid>
-                </Border>
+                <TextBox
+                    x:Name="SearchBox"
+                    Margin="8"
+                    Style="{StaticResource SearchBoxStyle}"/>
             </StackPanel>
             <!--End of header-->
             <!--Navigation-->
