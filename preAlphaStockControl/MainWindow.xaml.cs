@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media;
 
@@ -52,6 +53,28 @@ namespace preAlphaStockControl
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void ThemeMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Change_ThemeMode.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string selectedValue = selectedItem.Content.ToString();
+
+                switch (selectedValue)
+                {
+                    case "Light":
+                        Application.Current.ThemeMode = ThemeMode.Light;
+                        break;
+                    case "Dark":
+                        Application.Current.ThemeMode = ThemeMode.Dark;
+                        break;
+                    case "Use system setting":
+                        Application.Current.ThemeMode = ThemeMode.System;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
