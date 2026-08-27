@@ -1,39 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net10.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
-	  <NoWarn>$(NoWarn);WPF0001</NoWarn>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+		<NoWarn>$(NoWarn);WPF0001</NoWarn>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="StockControl_Icon.ico" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="StockControl_Icon.ico" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Assets\StockControl_Icon.ico" />
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\StockControl_Icon.ico" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Data\" />
-    <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
-<<<<<<< Updated upstream
-=======
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Models\" />
+		<Folder Include="Data\" />
+		<Folder Include="Services\" />
+		<Folder Include="ViewModels\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.11">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.11" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
->>>>>>> Stashed changes
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.11">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.11" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
+	</ItemGroup>
 
 </Project>
