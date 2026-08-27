@@ -10,7 +10,7 @@
     Title="PreAlphaStockControl"
     Height="600"
     Width="1200"
-    Icon="/StockControl_Icon.ico" WindowStartupLocation="CenterScreen">
+    Icon="Assets/StockControl_Icon.ico" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
         <Style x:Key="NavigationItemBorderStyle" TargetType="Border">
@@ -139,7 +139,8 @@
                 Margin="10"
                 BorderThickness="0"
                 SelectionMode="Single"
-                SelectedIndex="0">
+                SelectedIndex="0"
+                SelectionChanged="NavigationList_SelectionChanged">
 
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">

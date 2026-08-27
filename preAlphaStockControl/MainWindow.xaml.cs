@@ -16,7 +16,7 @@ namespace preAlphaStockControl
         {
             InitializeComponent();
 
-            // Appelé une fois que la fenêtre possède un handle Windows
+            MainFrame.Navigate(new DashboardPage());
             SourceInitialized += MainWindow_SourceInitialized;
         }
 
@@ -74,6 +74,38 @@ namespace preAlphaStockControl
                     default:
                         break;
                 }
+            }
+        }
+        private void NavigationList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (MainFrame == null)
+                return;
+
+            switch (NavigationList.SelectedIndex)
+            {
+                case 0:
+                    MainFrame.Navigate(new DashboardPage());
+                    break;
+                case 1:
+                    MainFrame.Navigate(new ProductsPage());
+                    break;
+                case 2:
+                    MainFrame.Navigate(new DocumentsPage());
+                    break;
+                case 3:
+                    MainFrame.Navigate(new SuppliersPage());
+                    break;
+                case 4:
+                    MainFrame.Navigate(new RequestersPage());
+                    break;
+                case 5:
+                    MainFrame.Navigate(new ReportsPage());
+                    break;
+                case 6:
+                    MainFrame.Navigate(new SettingsPage());
+                    break;
+                default:
+                    break;
             }
         }
     }
