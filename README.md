@@ -1,38 +1,34 @@
+![PreAlpha Stock Control banner](preAlphaStockControl/Assets/b1.png)
+
 # PreAlpha Stock Control
 
-> A modern WPF inventory-management experiment for Windows.
+> A pre-alpha WPF inventory-control desktop app for Windows.
 
-PreAlpha Stock Control is a small C#/.NET desktop application used to explore what a cleaner, more consistent stock-control experience could become. It currently acts as a sandbox: a place to test interface ideas, navigation patterns, product views, dashboard concepts, and the overall feel of a future inventory tool before committing to a larger, production-ready architecture.
+PreAlpha Stock Control is an early C#/.NET desktop application for shaping a modern stock-management experience. The project currently focuses on the application shell, navigation, theme behavior, and the first set of inventory-oriented screens that will later grow into a complete workflow.
 
-This repository is intentionally early-stage. It is not meant to be treated as a finished product yet, but as a working laboratory for design, workflow, and technical direction.
+This repository is still experimental. It is useful as a design and technical sandbox, not as a production-ready inventory system yet.
 
-## Project Status
+## Current Status
 
-**Pre-alpha / sandbox**
+**Pre-alpha / active prototype**
 
-The goal of this version is learning and iteration. Features may change quickly, UI decisions may be rewritten, and internal structure may evolve as the project becomes clearer.
+The app currently includes:
 
-Use this repository as:
-
-- a visual and technical prototype;
-- a playground for WPF layout and interaction ideas;
-- a foundation for a possible future stable version;
-- a reference point for what the final stock-control application could feel like.
-
-## What It Explores
-
-- Modern Windows desktop UI with WPF
-- Inventory-oriented navigation and screens
-- Dashboard, product, customer, report, and settings areas
-- A lightweight application shell for future business workflows
-- A cleaner user experience for stock and product management
+- a WPF desktop shell using the Fluent resource dictionary;
+- sidebar navigation with search-box styling;
+- light, dark, and system theme selection;
+- placeholder pages for Dashboard, Products, Documents, Suppliers, Requesters, Reports, and Settings;
+- DPI-change diagnostics in the main window;
+- project references prepared for future EF Core and PostgreSQL-backed data access.
 
 ## Tech Stack
 
 - **C#**
 - **WPF**
-- **.NET 10**
-- **Windows desktop**
+- **.NET 10** targeting `net10.0-windows`
+- **Fluent WPF resources** from `PresentationFramework.Fluent`
+- **Entity Framework Core**
+- **Npgsql / PostgreSQL provider**
 
 ## Getting Started
 
@@ -40,16 +36,21 @@ Use this repository as:
 
 - Windows
 - .NET 10 SDK
-- Visual Studio 2026 or a compatible .NET IDE
+- Visual Studio 2026, JetBrains Rider, or another IDE that supports modern .NET WPF projects
 
-### Run From The Command Line
+### Build
 
 ```powershell
 dotnet build .\preAlphaStockControl\preAlphaStockControl.csproj
+```
+
+### Run
+
+```powershell
 dotnet run --project .\preAlphaStockControl\preAlphaStockControl.csproj
 ```
 
-You can also open the solution file directly in Visual Studio:
+You can also open the solution directly:
 
 ```text
 preAlphaStockControl.slnx
@@ -59,35 +60,54 @@ preAlphaStockControl.slnx
 
 ```text
 .
-|-- preAlphaStockControl.slnx
-|-- README.md
 |-- LICENSE
+|-- README.md
+|-- preAlphaStockControl.slnx
 `-- preAlphaStockControl/
     |-- App.xaml
+    |-- App.xaml.cs
+    |-- AssemblyInfo.cs
     |-- MainWindow.xaml
     |-- MainWindow.xaml.cs
-    |-- StockControl_Icon.ico
-    `-- preAlphaStockControl.csproj
+    |-- preAlphaStockControl.csproj
+    |-- Assets/
+    |   |-- StockControl_Icon.ico
+    |   `-- b1.png
+    `-- Views/
+        |-- DashboardPage.xaml
+        |-- DashboardPage.xaml.cs
+        |-- DocumentsPage.xaml
+        |-- DocumentsPage.xaml.cs
+        |-- ProductsPage.xaml
+        |-- ProductsPage.xaml.cs
+        |-- RequestersPage.xaml
+        |-- RequestersPage.xaml.cs
+        |-- ReportsPage.xaml
+        |-- ReportsPage.xaml.cs
+        |-- SettingsPage.xaml
+        |-- SettingsPage.xaml.cs
+        |-- SuppliersPage.xaml
+        `-- SuppliersPage.xaml.cs
 ```
 
-## Future Direction
+The project file also reserves folders for future `Models`, `Data`, `Services`, and `ViewModels` layers as the application moves beyond placeholder screens.
 
-If the sandbox proves useful, the next step would be to shape it into a more consistent version with clearer application boundaries, real data persistence, stronger domain models, validation, testing, and a more complete stock-management workflow.
+## Planned Direction
 
-Potential future areas include:
+Possible next areas of work include:
 
 - product and category management;
-- stock movement history;
-- customer and supplier records;
+- document and stock movement workflows;
+- supplier and requester records;
 - reporting and analytics;
-- authentication and roles;
+- validation and error handling;
 - database-backed persistence;
 - import/export tools;
 - packaging and deployment.
 
 ## Important Note
 
-This project is experimental. APIs, screens, names, and workflows can change without notice while the idea is still being shaped.
+This is an experimental pre-alpha project. Screens, workflows, architecture, and dependencies may change as the application direction becomes clearer.
 
 ## License
 
