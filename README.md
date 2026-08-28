@@ -1,10 +1,10 @@
 ![PreAlpha Stock Control banner](preAlphaStockControl/Assets/b1.png)
 
-# PreAlpha Stock Control
+# StockControl
 
 > A pre-alpha WPF inventory-control desktop app for Windows.
 
-PreAlpha Stock Control is an early C#/.NET desktop application for shaping a modern stock-management experience. The project currently focuses on the application shell, navigation, theme behavior, and the first set of inventory-oriented screens that will later grow into a complete workflow.
+StockControl is an early C#/.NET desktop application for shaping a modern stock-management experience. The project currently focuses on the application shell, navigation, theme behavior, and the first set of inventory-oriented screens that will later grow into a complete workflow.
 
 This repository is still experimental. It is useful as a design and technical sandbox, not as a production-ready inventory system yet.
 
